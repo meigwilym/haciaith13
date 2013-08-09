@@ -1,0 +1,7 @@
+control logic: creu type yn y json, check am type a defnyddio lliw gwahanol ar gyfer y marker. 
+
+map ful screen, div hefo teitl ar ei ben. 
+
+switchable background tile
+
+get my location

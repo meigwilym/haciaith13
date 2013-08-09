@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Gwersi Codio Haciaith 2013 - Gwers 1</title>
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cleartype" content="on">
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+<link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="../img/touch/apple-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#222222">
+
+
+<!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+<!--
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="">
+-->
+
+<!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+<!--
+<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+-->
+
+<!-- CSS -->
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/main.css">
+
+<link rel="stylesheet" href="../leaflet/leaflet.css">
+
+<script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+
+<style>
+#map{
+height:400px;
+width:600px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Add your site or application content here -->
+<header>
+    <h1>Gwers 1</h1>
+</header>
+
+<section>
+    <div id="map"></div>
+</section>
+
+<footer>
+    <p>Gwersi Codio Haciath Eisteddfod 2013. <a href="index.html">Mynegai</a>. <a href="http://github.com/meigwilym/">Github</a>. </p>
+</footer>
+        
+<!-- scripts -->
+<script src="../js/vendor/zepto.min.js"></script>
+<script src="../js/helper.js"></script>
+<!-- http://leafletjs.com/download.html -->
+<script src="../leaflet/leaflet-src.js"></script>
+
+<script>
+    
+// ##############################################  Developer Edition
+
+console.log("dechrau'r JS");
+
+// coords
+var lat = '53.183841';
+var lon = '-3.375592';
+
+// creu'r map, wedi'i ganoli ar y coords
+var map = new L.map('map').setView([lat, lon], 13);
+
+// defnyddio OSM fel cefndir
+var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 17});	
+
+// gosod y cefndir
+map.addLayer(osm);
+        
+// gosod y marker Eisteddfod
+var stedd_lat = '53.183841';
+var stedd_lon = '-3.375592';
+
+var markerE = L.marker([stedd_lat, stedd_lon]);
+markerE.addTo(map);
+markerE.bindPopup("<b>Eisteddfod!</b>");
+
+// resize the map CSS
+// add an explanation paragraph
+
+// gosod y marker Dinbych
+var dinb_lat = '53.186916';
+var dinb_lon = '-3.411362';
+
+var markerD = L.marker([dinb_lat, dinb_lon]);
+markerD.addTo(map);
+markerD.bindPopup("<b>Dinbych!</b>");
+
+// gosod y marker Llandyrnog
+var lland_lat = '53.182827';
+var lland_lon = '-3.334672';
+
+var markerLl = L.marker([lland_lat, lland_lon]);
+markerLl.addTo(map);
+markerLl.bindPopup("<b>Llandyrnog!</b>");
+
+// map maes coords
+var maes = L.polygon([
+    [53.187893, -3.374670],
+    [53.186633, -3.370206],
+    [53.187199, -3.366902],
+    [53.182776, -3.367331],
+    [53.183830, -3.377073]
+]).addTo(map);
+maes.bindPopup("Dyma'r Maes.");
+
+console.log("gorffen y JS");
+
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+s.parentNode.insertBefore(g,s)}(document,"script"));
+</script>
+</body>
+</html>
